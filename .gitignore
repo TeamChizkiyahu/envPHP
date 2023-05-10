@@ -1,0 +1,14 @@
+.temp/*
+composer.lock
+/vendor/
+/.phan/
+/tools/
+/tools/bin/
+/tools/phpstan/cache/
+/tools/vendor/
+/phpunit.xml
+/php-cs-fixer.phar.asc
+/php-cs-fixer.phar
+/.php-cs-fixer.php
+.php-cs-fixer.cache
+.vscode/
