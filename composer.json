@@ -1,0 +1,47 @@
+{
+    "name": "teamchizkiyahu/envphp",
+    "description": "Seamless runtime env encryption.",
+    "keywords": [
+        "php",
+        "env",
+        "encryption",
+        "environment",
+        "zero-dependency",
+        "secure-env"
+    ],
+    "type": "library",
+    "license": "Artistic-2.0",
+    "minimum-stability": "beta",
+    "authors": [
+        {
+            "name": "arckc"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.6",
+        "phpstan/phpstan": "^1.10",
+        "mockery/mockery": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "TCENVPHP\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "pest": "./vendor/bin/pest --colors=always",
+        "XMLM": "vendor/bin/pest --migrate-configuration"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
