@@ -2,7 +2,7 @@
 
 Use this library for simple and seamless redundancy in env secrets encryption.
 
-A distilled approach codebase designed to be built on with creative tactics secure 
+A robust and distilled approach to encryption tactics that empowers innovation.
 
 envPHP is designed to enhance security and improve data handling within a PHP application. It includes features for handling encrypted environment variables, generating one-time passwords (OTPs), and secure storage and retrieval of sensitive data. 
 
