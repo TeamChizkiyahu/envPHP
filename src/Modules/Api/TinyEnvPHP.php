@@ -11,6 +11,9 @@ use TCENVPHP\Modules\Constants\Abstracts\AbstractOT;
 
 use TCENVPHP\Modules\Interface\Scrambler;
 
+use TCENVPHP\Modules\Instruments\EnvPHPTooling;
+use TCENVPHP\Modules\Instruments\Memory;
+
 use TCENVPHP\Auth\Aes;
 
 
@@ -126,6 +129,7 @@ class TinyEnvPHP
         return $envFile->callEncryptedEnv($directory);
     }
 
+
     /**
      * Stores data securely.
      *
@@ -232,5 +236,87 @@ class TinyEnvPHP
         }
 
         return $retrieved_data;
+    }
+
+
+    public function setHash($otp)
+    {
+        $hashed_id = (new EnvPHPTooling())->setHash($otp);
+        return $hashed_id;
+    }
+
+
+    public function verifyHash($otp, $hashed_id)
+    {
+        $hashVerify = (new EnvPHPTooling())->verifyHash($otp, $hashed_id);
+        return $hashVerify;
+    }
+
+
+    public function memoryWipe(&...$variables)
+    {
+        (new Memory())->wipe($variables);
+    }
+
+
+    public function startTinyEnv($root_dir)
+    {
+        $key = $this->initOtp();
+        $otp = $key['votp'];
+        $salt = $key['vsalt'];
+
+        // Set key for hash value
+        $hkey = 'hashed_id';
+
+        // Obtain a Hash value of the OTP
+        $hashed_id = $this->setHash($otp);
+
+        // Add to $key array
+        $key[$hkey] = $hashed_id;
+        $encryptedKeyArray = $this->secStore($key);
+        $this->initEnvFile($root_dir, $otp, $salt, true);
+        $this->memoryWipe($key, $otp, $salt, $hkey, $hashed_id);
+
+        return $encryptedKeyArray;
+    }
+
+    /* prepare secrets to be stored in the env file
+        ie:
+        $envStore = [
+                'SECRET_API_KEY' => $post['secret'],
+                'SECRET_API_KEY_I' => $post['secret_i'],
+            ];
+    */
+    public function storeTinyEnv($encryptedKeyArray, $root_dir, $envStore)
+    {
+        $key = $this->secRecall($encryptedKeyArray);
+        $otp = $key['votp'];
+        $salt = $key['vsalt'];
+        $hashed_id = $key['hashed_id'];
+
+        $hashVerify = $this->verifyHash($otp, $hashed_id);
+        if ($hashVerify) {
+
+            $this->wInitEnv($root_dir, $envStore, $otp, $salt);
+            $this->memoryWipe($envStore);
+        }
+        $this->memoryWipe($encryptedKeyArray, $key, $otp, $salt, $hashed_id, $hashVerify);
+    }
+
+    public function getTinyEnv($encryptedKeyArray, $root_dir, $env_name)
+    {
+        $key = $this->secRecall($encryptedKeyArray);
+        $otp = $key['votp'];
+        $salt = $key['vsalt'];
+        $hashed_id = $key['hashed_id'];
+
+        $hashVerify = $this->verifyHash($otp, $hashed_id);
+        if ($hashVerify) {
+            $decryptedSecret = $this->getInitEnvValue($root_dir, $env_name, $otp, $salt);
+
+            $this->memoryWipe($encryptedKeyArray, $key, $otp, $salt, $hashed_id, $hashVerify);
+
+            return $decryptedSecret;
+        }
     }
 }
