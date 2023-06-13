@@ -2,7 +2,7 @@
 
 use TCENVPHP\Modules\Constants\Core\Consts;
 use TCENVPHP\Auth\Aes;
-use TCENVPHP\Modules\Interface\VerifyPseudo;
+use TCENVPHP\Modules\Conjoins\VerifyPseudo;
 
 
 it('encrypts data and throws an exception when IV is not secure', function () {

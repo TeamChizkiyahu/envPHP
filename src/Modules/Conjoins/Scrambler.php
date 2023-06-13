@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TCENVPHP\Modules\Interface;
+namespace TCENVPHP\Modules\Conjoins;
 
 use InvalidArgumentException;
 
@@ -12,7 +12,7 @@ use InvalidArgumentException;
  *
  * This interface defines a contract for classes that scramble data using the XOR operation.
  *
- * @package TCENVPHP\Modules\Interface
+ * @package TCENVPHP\Modules\Conjoins
  */
 interface ScramblerInterface
 {
@@ -33,7 +33,7 @@ interface ScramblerInterface
  *
  * This class provides a method for scrambling data using the XOR operation.
  *
- * @package TCENVPHP\Modules\Interface
+ * @package TCENVPHP\Modules\Conjoins
  */
 class Scrambler implements ScramblerInterface
 {

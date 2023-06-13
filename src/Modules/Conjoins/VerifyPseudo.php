@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TCENVPHP\Modules\Interface;
+namespace TCENVPHP\Modules\Conjoins;
 
 use RuntimeException;
 
@@ -15,7 +15,7 @@ use RuntimeException;
  * 
  * This namespace is used to define interfaces and their implementations for the TCENVPHP application.
  *
- * @package TCENVPHP\Modules\Interface
+ * @package TCENVPHP\Modules\Conjoins
  */
 interface VerifyRandomGeneratorInterface
 {
@@ -34,7 +34,7 @@ interface VerifyRandomGeneratorInterface
  *
  * This class provides a method for generating a string of cryptographically secure pseudo-random bytes.
  *
- * @package TCENVPHP\Modules\Interface
+ * @package TCENVPHP\Modules\Conjoins
  */
 class VerifyPseudo implements VerifyRandomGeneratorInterface
 {

@@ -2,8 +2,8 @@
 
 use TCENVPHP\Modules\Constants\Core\AnonConsts;
 
-use TCENVPHP\Modules\Interface\Scrambler;
-use TCENVPHP\Modules\Interface\VerifyPseudo;
+use TCENVPHP\Modules\Conjoins\Scrambler;
+use TCENVPHP\Modules\Conjoins\VerifyPseudo;
 
 use TCENVPHP\Auth\Gen;
 

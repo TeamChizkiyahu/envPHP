@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace TCENVPHP\Auth;
 
 use TCENVPHP\Modules\Constants\Core\Consts;
-use TCENVPHP\Modules\Interface\Scrambler;
+use TCENVPHP\Modules\Conjoins\Scrambler;
 
 use RuntimeException;
 

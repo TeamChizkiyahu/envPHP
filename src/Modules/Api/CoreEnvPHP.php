@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace TCENVPHP\Modules\Api;
 
-use TCENVPHP\Modules\Interface\Scrambler;
+use TCENVPHP\Modules\Conjoins\Scrambler;
 
 use TCENVPHP\Auth\Masters;
 use TCENVPHP\Auth\Gen;

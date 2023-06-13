@@ -9,7 +9,7 @@ use TCENVPHP\Modules\Constants\Core\Consts;
 
 use TCENVPHP\Modules\Constants\Abstracts\AbstractOT;
 
-use TCENVPHP\Modules\Interface\Scrambler;
+use TCENVPHP\Modules\Conjoins\Scrambler;
 
 use TCENVPHP\Modules\Instruments\EnvPHPTooling;
 use TCENVPHP\Modules\Instruments\Memory;

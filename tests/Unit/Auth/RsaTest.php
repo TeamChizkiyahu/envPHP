@@ -2,7 +2,7 @@
 
 use TCENVPHP\Auth\Rsa;
 use TCENVPHP\Modules\Constants\Core\Consts;
-use TCENVPHP\Modules\Interface\Scrambler;
+use TCENVPHP\Modules\Conjoins\Scrambler;
 
 
 it('returns a string when provided valid input to encrypt data', function () {
