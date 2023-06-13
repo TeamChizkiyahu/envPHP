@@ -171,7 +171,7 @@ Please consider reporting issues, submitting pull requests, contributing to disc
 
 If you care for the work we do please consider reaching out to sponsor us.
 
-Please consider supporting our approach to advancing the basics with simplicity for achieving the next generation of agnostic and framework friendly package architecture that distills vision, creativity, and practicallty.
+Please consider supporting our approach to advancing streamlined sovereignty with simplicity for achieving the next generation of agnostic and framework friendly package architecture that distills vision, creativity, and practicallty.
 
 We hope to foster and advocate for tools that strenghens community locally and remotely.
 
